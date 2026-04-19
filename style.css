@@ -18,42 +18,117 @@ footer {
 }
 
 .hero {
+    position: relative;
     background-image: url(./assets/img/hero.png);
-    height: 508px;
+    height: 500px;
 
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
-
+    background-position: center; */
+    height: 508px;
     width: 100%;
-    max-width: 1440px;
+    object-fit: cover;
 
+    max-width: 1440px;
+    margin: 0 auto;
+    /* margin-bottom: 200px; */
+}
+
+.hero h1 {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+
+.text_line {
+    display: flex;
+    flex-direction: column;  /* wichtig! */
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    max-width: 1440px;
     margin: 0 auto;
 }
 
 
+.text_line h1 {
+    color: red;
+}
+
+.buy_button {
+    background-color: orange;
+    color: rgb(172, 8, 8);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s ease;
+    margin-top: 28px;
+
+}
+
+.buy_button:hover {
+    background-color: darkorange;
+}
+
+
+.hero img {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    height: 200px; /* Beispielhöhe → wichtig! */
+    
+    bottom: -100px; /* genau die Hälfte der Bildhöhe */
+    z-index: 10;
+}
+.section_border {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    height: 50px;
+    background-color: rgba(231, 108, 31, 1);
+
+    align-self: stretch;
+}
 /* LAYOUT WRAPPER */
 .content_wrapper {
+    position: relative;
     display: flex;
     flex-direction: row;
     gap: 16px;
-
     padding: 16px;
     background-color: #f3f3f3;
 
     min-height: 100vh;
     max-width: 1440px;
-
-    margin: 0 auto; /* <- DAS macht es mittig */
+    margin: 0 auto;
+    padding-top: 50px;
 }
 
 /* MAIN CONTENT */
 .content {
     width: 100%;
     padding: 16px;
+    margin-left: 64px;
     background-color: #ffffff;
     border-radius: 10px;
     overflow-y: auto;
+}
+
+.content h2 {
+    position: absolute;
+    top: 25px; /* exakt Mitte der 50px Border */
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    margin: 0;
+    padding: 0 15px;
+
+    background: #f3f3f3; /* wichtig: Hintergrund "schneidet" die Linie */
+    z-index: 2;
 }
 
 /* DISH LIST CONTAINER */
@@ -70,16 +145,20 @@ footer {
     justify-content: space-between;
     gap: 16px;
 
-    padding: 12px;
+    padding: 24px;
     border-radius: 12px;
-    background: #fff;
+    background: rgb(253, 234, 220);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-top: 12px;
+    margin-bottom: 12px ;
+    width: 713px;
+    height: 141px;
 }
 
 /* IMAGE */
 .dish-card img {
-    width: 120px;
-    height: 90px;
+    width: 207px;
+    height: 121px;
     object-fit: cover;
     border-radius: 10px;
 }
@@ -104,7 +183,8 @@ footer {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 8px;
+    gap: 24px;
+
 }
 
 .price {
@@ -117,8 +197,9 @@ footer {
     padding: 6px 12px;
     border: none;
     border-radius: 8px;
-    background-color: #28a745;
-    color: white;
+    background-color: white;
+
+    color: #555;
     cursor: pointer;
     transition: 0.2s;
 }
@@ -138,7 +219,32 @@ footer {
     padding: 16px;
     border-radius: 10px;
     overflow-y: auto;
+    margin-top: 16px;
+    padding-left: 48px;
+    margin-right: auto;
 }
+
+.basket-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 12px 16px;
+    margin-bottom: 12px;
+
+    border: 1px solid #e0e0e0;
+    border-radius: 12px;   /* 👈 runde Ecken */
+    background: rgb(253, 234, 220);
+    color: #2c3e50;
+    height: 103px;
+    max-width: 340px;
+}
+
+
+
+
+
+
 
 /* OPTIONAL: RESPONSIVE */
 @media (max-width: 900px) {
