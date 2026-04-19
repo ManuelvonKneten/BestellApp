@@ -37,7 +37,6 @@ function renderDishes() {
                     </div>
 
                     <div class="dish-action">
-                    <h2>Your Basket</h2>
                         <span class="price">${dish.price.toFixed(2)} €</span>
                             <button onclick="addToBasket(${dish.id})">
                                 Add to Basket (${dish.amount})

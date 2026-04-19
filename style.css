@@ -8,30 +8,29 @@
 header {
     background-color: rgba(231, 108, 31, 1);
     height: 128px;
-    width: 1920px%;
+    width: 100%; /* FIX */
 }
 
 footer {
     background-color: rgba(231, 108, 31, 1);
     height: 128px;
-    width: 1920px%;
+    width: 100%; /* FIX */
 }
 
 .hero {
     position: relative;
     background-image: url(./assets/img/hero.png);
-    height: 500px;
 
-    /* background-repeat: no-repeat;
+    /* FIX: richtige Background Settings */
+    background-repeat: no-repeat;
     background-size: cover;
-    background-position: center; */
+    background-position: center;
+
     height: 508px;
     width: 100%;
-    object-fit: cover;
 
     max-width: 1440px;
     margin: 0 auto;
-    /* margin-bottom: 200px; */
 }
 
 .hero h1 {
@@ -43,14 +42,13 @@ footer {
 
 .text_line {
     display: flex;
-    flex-direction: column;  /* wichtig! */
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 250px;
     max-width: 1440px;
     margin: 0 auto;
 }
-
 
 .text_line h1 {
     color: red;
@@ -66,33 +64,28 @@ footer {
     font-size: 16px;
     transition: 0.2s ease;
     margin-top: 28px;
-
 }
 
 .buy_button:hover {
     background-color: darkorange;
 }
 
-
 .hero img {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-
-    height: 200px; /* Beispielhöhe → wichtig! */
-    
-    bottom: -100px; /* genau die Hälfte der Bildhöhe */
+    height: 200px;
+    bottom: -100px;
     z-index: 10;
 }
+
 .section_border {
     position: relative;
     width: 100%;
-    max-width: 1440px;
     height: 50px;
     background-color: rgba(231, 108, 31, 1);
-
-    align-self: stretch;
 }
+
 /* LAYOUT WRAPPER */
 .content_wrapper {
     position: relative;
@@ -110,6 +103,7 @@ footer {
 
 /* MAIN CONTENT */
 .content {
+    position: relative; /* FIX wichtig für h2 */
     width: 100%;
     padding: 16px;
     margin-left: 64px;
@@ -120,14 +114,14 @@ footer {
 
 .content h2 {
     position: absolute;
-    top: 25px; /* exakt Mitte der 50px Border */
+    top: 25px;
     left: 50%;
     transform: translate(-50%, -50%);
 
     margin: 0;
     padding: 0 15px;
 
-    background: #f3f3f3; /* wichtig: Hintergrund "schneidet" die Linie */
+    background: #f3f3f3;
     z-index: 2;
 }
 
@@ -150,7 +144,7 @@ footer {
     background: rgb(253, 234, 220);
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     margin-top: 12px;
-    margin-bottom: 12px ;
+    margin-bottom: 12px;
     width: 713px;
     height: 141px;
 }
@@ -184,7 +178,6 @@ footer {
     flex-direction: column;
     align-items: flex-end;
     gap: 24px;
-
 }
 
 .price {
@@ -198,7 +191,6 @@ footer {
     border: none;
     border-radius: 8px;
     background-color: white;
-
     color: #555;
     cursor: pointer;
     transition: 0.2s;
@@ -233,20 +225,14 @@ footer {
     margin-bottom: 12px;
 
     border: 1px solid #e0e0e0;
-    border-radius: 12px;   /* 👈 runde Ecken */
+    border-radius: 12px;
     background: rgb(253, 234, 220);
     color: #2c3e50;
     height: 103px;
     max-width: 340px;
 }
 
-
-
-
-
-
-
-/* OPTIONAL: RESPONSIVE */
+/* RESPONSIVE */
 @media (max-width: 900px) {
     .content_wrapper {
         flex-direction: column;
