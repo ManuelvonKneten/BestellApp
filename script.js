@@ -62,35 +62,21 @@ function addToBasket(id) {
         basket.push({ ...dish, amount: 1 });
     }
 
-    renderBasket(); // 👈 DAS hat dir gefehlt
+    renderBasket();
 }
 
 
 function renderBasket() {
-    let container = document.querySelector(".basket");
+    let container = document.querySelector("#basketItems");
+    let summary = document.querySelector(".basket_summary");
+
+    let subtotal = 0;
+    let delivery = 3.99;
 
     container.innerHTML = "";
 
     basket.forEach(item => {
-        container.innerHTML += `
-        <div class="basket-item">
-            <span>${item.name}</span>
-            <span>${item.amount}x</span>
-            <span id "buy_botton">Buy now ${item.price}€</span>
-        </div>
-        `;
-    });
-}
-
-function renderBasket() {
-    let container = document.querySelector(".basket");
-
-    let total = 0;
-
-    container.innerHTML = "";
-
-    basket.forEach(item => {
-        total += item.price * item.amount;
+        subtotal += item.price * item.amount;
 
         container.innerHTML += `
             <div class="basket-item">
@@ -100,13 +86,34 @@ function renderBasket() {
         `;
     });
 
-    container.innerHTML += `
-    <hr>
-    <button class="buy_button" onclick="buyNow()">
-        Buy Now (${total.toFixed(2)} €)
-    </button>
-`;
+    let total = subtotal + delivery;
+
+    summary.innerHTML = `
+        <div class="basket-costs">
+            <div class="line">
+                <span>Subtotal:</span>
+                <span>${subtotal.toFixed(2)} €</span>
+            </div>
+
+            <div class="line">
+                <span>Delivery fee:</span>
+                <span>${delivery.toFixed(2)} €</span>
+            </div>
+
+            <hr>
+
+            <div class="line total">
+                <strong>Total:</strong>
+                <strong>${total.toFixed(2)} €</strong>
+            </div>
+        </div>
+
+        <button class="buy_button" onclick="buyNow()">
+            Buy Now
+        </button>
+    `;
 }
+
 
 function init() {
     renderDishes();

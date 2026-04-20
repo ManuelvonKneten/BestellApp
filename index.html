@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Layout</title>
+    <title>BestellApp</title>
+
     <link rel="stylesheet" href="./style.css">
     <script src="script.js" defer></script>
     <script src="./scripts/dishes.js"></script>
 </head>
+
 <body onload="init()">
 
     <header class="header">
@@ -16,51 +18,57 @@
             <img src="./assets/icons/menu.png" alt="menu" class="menu">
         </div>
     </header>
-                <section class="hero">
-                            <img src="./assets/icons/logo.png" alt="logo">
 
-            
-                
-            </section>
-
-
-<div class="text_line">
-    <h1>BurgerHouse 4,1 (317)</h1>
-    <p>The best of Burgers, Pizza, and Greens, all in one great place.</p>
-</div>
-
-<div class="content_wrapper">
-
-    <section class="content">
-
-        <div class="section_border"><h2>Burger</h2></div>
-        <div class="contentDishesBurger"></div>
-
-        
-        <div class="section_border"><h2>Pizza</h2></div>
-        <div class="contentDishesPizza"></div>
-
-        <div class="section_border"><h2>Salad</h2></div>
-        <div class="contentDishesSalad"></div>
-
-        <div class="section_border"><h2>Pasta</h2></div>
-        <div class="contentDishesPasta"></div>
-
+    <section class="hero">
+        <img src="./assets/icons/logo.png" alt="logo">
     </section>
 
-    <section class="basket_wrapper">
-        <div class="basket">
-           
-            <h2>Your Basket</h2>
+    <div class="text_line">
+        <h1 class="logo">
+            <span class="burger">Burger</span><span class="house">House</span>
+        </h1>
+        <p>The best of Burgers, Pizza, and Greens, all in one great place.</p>
+    </div>
 
-                      
- 
-        
-        
+    <div class="content_wrapper">
+
+        <section class="content">
+
+            <div class="section_border"><h2>Burger</h2></div>
+            <div class="contentDishesBurger"></div>
+
+            <div class="section_border"><h2>Pizza</h2></div>
+            <div class="contentDishesPizza"></div>
+
+            <div class="section_border"><h2>Salad</h2></div>
+            <div class="contentDishesSalad"></div>
+
+            <div class="section_border"><h2>Pasta</h2></div>
+            <div class="contentDishesPasta"></div>
+
+        </section>
+
+<aside class="basket_wrapper">
+
+    <div class="basket">
+
+        <h2>Your Basket</h2>
+
+        <div class="basket-dishes">
+            <div id="basketItems"></div>
         </div>
-    </section>
 
-</div>
+        <div class="basket_summary">
+
+            <button class="buy_button">Buy Now</button>
+
+        </div>
+
+    </div>
+
+</aside>
+
+    </div>
 
     <footer>
         Footer
@@ -68,4 +76,3 @@
 
 </body>
 </html>
-
