@@ -1,9 +1,17 @@
-
-
 header {
     background-color: rgba(231, 108, 31, 1);
     height: 128px;
-    width: 100%; /* FIX */
+    width: 100%;
+}
+
+.header_wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 24px;
+}
+
+.header_wrapper img {
+    height: 64px;
 }
 
 footer {
@@ -80,7 +88,6 @@ footer {
     background-color: rgba(231, 108, 31, 1);
 }
 
-/* LAYOUT WRAPPER */
 .content_wrapper {
     position: relative;
     display: flex;
@@ -95,9 +102,8 @@ footer {
     padding-top: 50px;
 }
 
-/* MAIN CONTENT */
 .content {
-    position: relative; /* FIX wichtig für h2 */
+    position: relative;
     width: 100%;
     padding: 16px;
     margin-left: 64px;
@@ -122,14 +128,12 @@ footer {
     z-index: 2;
 }
 
-/* DISH LIST CONTAINER */
 .contentDishes {
     display: flex;
     flex-direction: column;
     gap: 16px;
 }
 
-/* DISH CARD */
 .dish-card {
     display: flex;
     align-items: center;
@@ -197,7 +201,6 @@ footer {
     background-color: #218838;
 }
 
-
 .line {
     display: flex;
     justify-content: space-between;
@@ -208,8 +211,6 @@ footer {
     font-size: 16px;
     margin-top: 6px;
 }
-
-
 
 .logo {
     font-size: 36px;
@@ -225,7 +226,6 @@ footer {
     color: #222;
 }
 
-
 /* RESPONSIVE */
 @media (max-width: 900px) {
     .content_wrapper {
@@ -237,4 +237,5 @@ footer {
         height: auto;
         position: relative;
     }
+    
 }
