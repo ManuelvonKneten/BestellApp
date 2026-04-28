@@ -12,10 +12,41 @@ function renderBasket() {
         subtotal += item.price * item.amount;
 
         container.innerHTML += `
-            <div class="basket-item">
-                <span>${item.name}</span>
-                <span>${item.amount} x ${item.price.toFixed(2)} €</span>
+        <div class="basket-item">
+
+            <div class="basket-top">
+                <span>${item.amount} x ${item.name}</span>
             </div>
+
+            <div class="basket-bottom">
+
+                <div class="basket-actions">
+
+                    <span style="cursor:pointer;"
+                        onclick="${item.amount === 1 ? `removeFromBasket(${item.id})` : `removeFromBasket(${item.id})`}">
+
+                        ${item.amount <= 1
+                            ? `<img src="./assets/icons/delete.png" alt="delete" width="18" height="18">`
+                            : `-`}
+                    </span>
+
+                    <span>
+                        ${item.amount}x
+                    </span>
+
+                    <span onclick="addToBasket(${item.id})" style="cursor:pointer;">
+                        +
+                    </span>
+
+                </div>
+
+                <div class="basket-price">
+                    ${item.price.toFixed(2)} €
+                </div>
+
+            </div>
+
+
         `;
     });
 
@@ -32,6 +63,8 @@ function renderBasket() {
                 <span>Delivery fee:</span>
                 <span>${delivery.toFixed(2)} €</span>
             </div>
+
+
 
             <hr>
 

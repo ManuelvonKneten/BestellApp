@@ -1,11 +1,10 @@
-
 /* basket */
 .basket {
     display: flex;
     flex-direction: column;
 
-    height: 800px;
-    width: 400px;
+    height: 795px;
+    width: 435px;
     max-height: 100vh;
 
     background-color: #363534;
@@ -14,12 +13,10 @@
     padding: 20px;
     box-sizing: border-box;
 
-    overflow: hidden; /* wichtig: kein Scroll hier */
+    overflow: hidden;
     top: 12px;
     position: sticky;
 }
-
-
 
 /* Sticky Header */
 .basket h2 {
@@ -29,13 +26,13 @@
 
 /* Scrollbarer Bereich für Items */
 .basket-dishes {
-    flex: 1;                 /* nimmt freien Platz ein */
-    overflow-y: auto;        /* 🔥 Scroll aktiv */
+    flex: 1;
+    overflow-y: auto;
     margin: 10px 0;
     max-height: 500px;
 }
 
-/* 🔽 FIXER FOOTER */
+/* FIXER FOOTER */
 .basket_summary {
     height: 150px;
     flex-shrink: 0;
@@ -60,24 +57,40 @@
 /* ITEM DESIGN */
 .basket-item {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    align-items: center;
 
     padding: 14px 16px;
     margin-bottom: 12px;
 
-    background: #fdeadc; /* dein Farbton */
+    background: #fdeadc;
     border-radius: 16px;
 
     box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-    
+
     color: #2c3e50;
 
     min-height: 90px;
-    height: 150px;
+    height: 110px;
     max-width: 95%;
-    font-size: 24px;
+
+    font-size: 18px;
     font-weight: 800;
+}
+
+/* OBEN DISH */
+.basket-top {
+    display: flex;
+    align-items: flex-start;
+    font-size: 18px;
+    font-weight: 800;
+}
+
+/* UNTEN AMOUNT LINKS / PREIS RECHTS */
+.basket-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .basket-costs {
@@ -86,19 +99,6 @@
     color: white;
 }
 
-
-.buy_button {
-    width: 100%;
-    padding: 12px;
-    margin-top: 10px;
-    background: orange;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-/* Button bleibt unten */
 .buy_button {
     width: 100%;
     background-color: #ff6b00;
@@ -107,4 +107,25 @@
     padding: 14px;
     border-radius: 999px;
     cursor: pointer;
+}
+
+
+.basket-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center; /* wichtig */
+}
+
+.basket-actions span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.basket-actions img {
+    display: block;
+}
+
+.basket-price {
+    font-weight: bold;
 }

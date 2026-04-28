@@ -65,7 +65,19 @@ function addToBasket(id) {
     renderBasket();
 }
 
+function removeFromBasket(id) {
+    let item = basket.find(element => element.id === id);
 
+    if (item) {
+        item.amount--;
+
+        if (item.amount <= 0) {
+            basket = basket.filter(element => element.id !== id);
+        }
+
+        renderBasket();
+    }
+}
 
 function init() {
     renderDishes();

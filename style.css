@@ -7,11 +7,15 @@ header {
 .header_wrapper {
     display: flex;
     justify-content: space-between;
-    padding: 24px;
+    padding-top: 42px;
+    padding-left: 24px;
+    padding-right: 24px;
+    max-width: 1440px;
+    margin: 0 auto;
 }
 
 .header_wrapper img {
-    height: 64px;
+    height: 40px;
 }
 
 footer {
@@ -88,6 +92,9 @@ footer {
     background-color: rgba(231, 108, 31, 1);
 }
 
+.section_border img {
+    width: 64px;
+}
 .content_wrapper {
     position: relative;
     display: flex;
@@ -120,11 +127,8 @@ footer {
     top: 25px;
     left: 50%;
     transform: translate(-50%, -50%);
-
     margin: 0;
     padding: 0 15px;
-
-    background: #f3f3f3;
     z-index: 2;
 }
 
@@ -233,9 +237,17 @@ footer {
     }
 
     .basket {
-        width: 100%;
-        height: auto;
-        position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 795px;
+    width: 100vw !important;
+    max-height: 100vh;
+    background-color: #363534;
+    border-radius: 15px 0 0 15px;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    top: 12px;
+    position: sticky;
     }
-    
 }
