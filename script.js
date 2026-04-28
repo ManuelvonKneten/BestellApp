@@ -64,7 +64,28 @@ function addToBasket(id) {
 
     renderBasket();
 }
+/* 
+  Button in html einbauen
+*/
 
+function removeFromBasket(id) {
+    id = Number(id);
+    let itemIndex = basket.findIndex(d => d.id === id);
+
+    if (itemIndex !== -1) {
+        let item = basket[itemIndex];
+        
+        if (item.amount > 1) {
+            // Menge um eins verringern
+            item.amount--;
+        } else {
+            // Wenn nur noch 1 übrig ist: ganz aus dem Array entfernen
+            basket.splice(itemIndex, 1);
+        }
+    }
+
+    renderBasket(); // Anzeige aktualisieren
+}
 
 
 function init() {
