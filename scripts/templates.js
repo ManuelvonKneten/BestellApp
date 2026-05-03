@@ -79,3 +79,7 @@ function renderBasket() {
         </button>
     `;
 }
+
+function closeDialog() {
+    document.getElementById("orderDialog").classList.add("hidden");
+}

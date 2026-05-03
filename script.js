@@ -4,7 +4,7 @@ let basket = [];
 function addToBasket(id) {
     id = Number(id);
 
-    // 👉 Basket beim ersten Mal öffnen
+    // Basket beim ersten Mal öffnen
     if (!basketOpened) {
         document.querySelector(".basket_wrapper")?.classList.add("open");
         basketOpened = true;
@@ -84,7 +84,7 @@ function addToBasket(id) {
 
     dish.amount = basket.find(d => d.id === id).amount;
 
-    showBasket();      // 👈 erst hier sichtbar machen
+    showBasket();      // erst hier sichtbar machen
     renderBasket();
     renderDishes();
 }
@@ -113,4 +113,24 @@ function showBasket() {
 
 function hideBasket() {
     document.querySelector(".basket").classList.remove("active");
+}
+
+function buyNow() {
+    // Popup anzeigen
+    document.getElementById("orderDialog").classList.remove("hidden");
+
+    // Basket ausblenden
+    document.getElementById("basket").classList.add("hidden");
+
+    // Warenkorb leeren
+    document.querySelector("#basket").innerHTML = "";
+
+    // Nach 5 Sekunden Seite neu laden
+    setTimeout(() => {
+        location.reload();
+    }, 5000);
+}
+
+function closeDialog() {
+    document.getElementById("orderDialog").classList.add("hidden");
 }

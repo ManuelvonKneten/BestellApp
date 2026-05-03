@@ -11,7 +11,7 @@
 
     <script src="./script.js" defer></script>
     <script src="./scripts/dishes.js"></script>
-    <script src="./scripts/templates.js"></script>
+    <script src="./scripts/templates.js" defer></script>
 
 </head>
 
@@ -19,8 +19,17 @@
 
     <header class="header">
         <div class="header_wrapper">
+            <div class="header_left">
+            <img src="./assets/icons/takeout_dining_2.svg" alt="bestell_app" class="logo">
             <img src="./assets/icons/Bestell APP.png" alt="bestell_app" class="logo">
+            </div>
+
+            <div class="head_right">
             <img src="./assets/icons/menu.png" alt="menu" class="menu">
+
+            </div>
+
+           
         </div>
     </header>
 
@@ -61,7 +70,7 @@
 
         </section>
 
-<aside class="basket_wrapper">
+<aside id="basket" class="basket_wrapper">
 
     <div class="basket">
 
@@ -72,15 +81,27 @@
         </div>
 
         <div class="basket_summary">
+    <button class="buy_button" onclick="buyNow()">Buy Now</button>
 
-            <button class="buy_button">Buy Now</button>
 
-        </div>
 
     </div>
 
 </aside>
 
+<div id="orderDialog" class="orderDialog hidden">
+    <img src="./assets/icons/car.svg" alt="Delivery">
+
+    <h2>Order confirmed!</h2>
+
+    <p>Your food is on the way!</p>
+
+    <button class="dialog_button" onclick="closeDialog()">
+        Schließen
+    </button>
+</div>
+
+    
     </div>
 
     <footer>

@@ -280,6 +280,42 @@ footer a {
     color: #222;
 }
 
+.orderDialog {
+    width: 415px;
+    height: 219px;
+    background-color: #363534;
+
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.hidden {
+    display: none;
+}
+
+.orderDialog img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.dialog_button {
+    margin-top: 15px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
     .content_wrapper {
