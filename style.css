@@ -18,10 +18,37 @@ header {
     height: 40px;
 }
 
-footer {
+.headline-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.rate {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.rate p {
+    margin: 0;
+}
+
+footer { 
     background-color: rgba(231, 108, 31, 1);
     height: 128px;
     width: 100%; /* FIX */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    color: white;
+}
+
+footer a {
+    color: white;
+    text-decoration: none;
 }
 
 .hero {
@@ -59,6 +86,18 @@ footer {
 .text_line h1 {
     color: red;
 }
+.text_line p {
+    font-weight: 800;
+}
+
+.rate {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    background-color: #FACAAC;
+    padding: 4px 5px;
+    border-radius: 10px;
+}
 
 .buy_button {
     background-color: orange;
@@ -94,7 +133,13 @@ footer {
 
 .section_border img {
     width: 64px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    left: 120px;
 }
+
+
 .content_wrapper {
     position: relative;
     display: flex;
@@ -107,6 +152,12 @@ footer {
     max-width: 1440px;
     margin: 0 auto;
     padding-top: 50px;
+}
+
+.basket_wrapper {
+    position: relative;
+    z-index: 88;
+
 }
 
 .content {
@@ -127,6 +178,8 @@ footer {
     margin: 0;
     padding: 0 15px;
     z-index: 2;
+    color: white;
+    font-size: 36px;
 }
 
 .contentDishes {

@@ -1,6 +1,8 @@
 /* basket */
+
+
 .basket {
-    display: flex;
+    display: none;
     flex-direction: column;
 
     height: 795px;
@@ -17,6 +19,12 @@
     top: 12px;
     position: sticky;
 }
+
+/* sichtbar Zustand */
+.basket.active {
+    display: flex;
+}
+
 
 /* Sticky Header */
 .basket h2 {
@@ -128,4 +136,22 @@
 
 .basket-price {
     font-weight: bold;
+}
+
+.basket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.basket-close-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: inherit;
+}
+
+.basket-close-btn:hover {
+    opacity: 0.6;
 }

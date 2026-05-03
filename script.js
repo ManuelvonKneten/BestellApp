@@ -1,8 +1,28 @@
 let basket = [];
 
 
-function addToBasket(index) {
-    console.log("Added:", index);
+function addToBasket(id) {
+    id = Number(id);
+
+    // 👉 Basket beim ersten Mal öffnen
+    if (!basketOpened) {
+        document.querySelector(".basket_wrapper")?.classList.add("open");
+        basketOpened = true;
+    }
+
+    let item = basket.find(d => d.id === id);
+    let dish = myDishes.find(d => d.id === id);
+
+    if (item) {
+        item.amount++;
+    } else {
+        basket.push({ ...dish, amount: 1 });
+    }
+
+    dish.amount = basket.find(d => d.id === id).amount;
+
+    renderBasket();
+    renderDishes();
 }
 
 function renderDishes() {
@@ -54,19 +74,20 @@ function addToBasket(id) {
     id = Number(id);
 
     let item = basket.find(d => d.id === id);
+    let dish = myDishes.find(d => d.id === id);
 
     if (item) {
         item.amount++;
     } else {
-        let dish = myDishes.find(d => d.id === id);
         basket.push({ ...dish, amount: 1 });
     }
 
+    dish.amount = basket.find(d => d.id === id).amount;
+
+    showBasket();      // 👈 erst hier sichtbar machen
     renderBasket();
+    renderDishes();
 }
-/* 
-  Button in html einbauen
-*/
 
 function removeFromBasket(id) {
     let item = basket.find(element => element.id === id);
@@ -86,3 +107,10 @@ function init() {
     renderDishes();
 }
 
+function showBasket() {
+    document.querySelector(".basket").classList.add("active");
+}
+
+function hideBasket() {
+    document.querySelector(".basket").classList.remove("active");
+}
