@@ -131,10 +131,12 @@ footer a {
 }
 
 .section_border {
-    position: relative;
-    width: 100%;
+    position: absolute;
+    width: 1440px;
     height: 50px;
     background-color: rgba(231, 108, 31, 1);
+    margin: -32px;
+    max-width: 100vw;
 }
 
 .section_border img {
@@ -170,13 +172,45 @@ footer a {
 .content h2 {
     position: absolute;
     top: 25px;
-    left: 50%;
+    left: 20%;
     transform: translate(-50%, -50%);
     margin: 0;
     padding: 0 15px;
     z-index: 2;
     color: white;
     font-size: 36px;
+}
+
+.contentDishesBurger {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.contentDishesPizza {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.contentDishesSalad {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    padding-top: 65px;
+    padding-bottom: 65px;
+}
+
+.contentDishesPasta {
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    padding-top: 65px;
+    padding-bottom: 65px;
 }
 
 .contentDishes {
