@@ -17,6 +17,7 @@
     position: sticky;
     top: 12px;
     padding-bottom: 64px;
+    flex-shrink: 0;
 }
 
 .basket.active {
