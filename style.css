@@ -129,24 +129,30 @@ footer a {
     bottom: -100px;
     z-index: 10;
 }
-
 .section_border {
-    position: absolute;
-    width: 1440px;
-    height: 50px;
+    width: 1437px;
+    height: 70px;
     background-color: rgba(231, 108, 31, 1);
-    margin: -32px;
+    display: flex;
+    align-items: center;
+    padding: 0 60px;
+    box-sizing: border-box;
+    position: absolute;
     max-width: 100vw;
+    gap: 100px;
+    margin-left: -29px;
 }
 
 .section_border img {
-    width: 64px;
-    display: flex;
-    justify-content: center;
-    position: relative;
-    left: 120px;
+    height: 50px;
+    width: auto;
 }
 
+.section_border h2 {
+    margin: 0;
+    color: #fff;
+    font-size: 36px;
+}
 
 .content_wrapper {
     display: flex;
@@ -169,7 +175,7 @@ footer a {
     border-radius: 10px;
 }
 
-.content h2 {
+/* .content h2 {
     position: absolute;
     top: 25px;
     left: 20%;
@@ -179,38 +185,38 @@ footer a {
     z-index: 2;
     color: white;
     font-size: 36px;
-}
+} */
 
 .contentDishesBurger {
     display: flex;
     flex-direction: column;
     gap: 23px;
-    padding-top: 65px;
-    padding-bottom: 65px;
+    padding-top: 75px;
+    padding-bottom: 15px;
 }
 
 .contentDishesPizza {
     display: flex;
     flex-direction: column;
     gap: 23px;
-    padding-top: 65px;
-    padding-bottom: 65px;
+    padding-top: 75px;
+    padding-bottom: 15px;
 }
 
 .contentDishesSalad {
     display: flex;
     flex-direction: column;
     gap: 23px;
-    padding-top: 65px;
-    padding-bottom: 65px;
+    padding-top: 75px;
+    padding-bottom: 15px;
 }
 
 .contentDishesPasta {
     display: flex;
     flex-direction: column;
     gap: 23px;
-    padding-top: 65px;
-    padding-bottom: 65px;
+    padding-top: 75px;
+    padding-bottom: 15px;
 }
 
 .contentDishes {

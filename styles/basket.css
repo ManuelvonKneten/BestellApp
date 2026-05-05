@@ -4,21 +4,20 @@
 .basket {
     display: none;
     flex-direction: column;
-
-    width: 360px;
+    width: 401px;
     max-width: 100%;
-
-    height: calc(100vh - 640px);
-
-    background-color: #363534;
+    height: calc(-440px + 100vh);
+    background-color: rgb(54, 53, 52);
     border-radius: 15px;
-
-    padding: 20px;
+    padding: 20px 20px 60px;
     position: sticky;
-    top: 12px;
-    padding-bottom: 64px;
     flex-shrink: 0;
+    top: 67px;
+    margin-top: 15px;
+    padding-bottom: 117px;
+    max-height: 58vh;
 }
+
 
 .basket.active {
     display: flex;
@@ -29,7 +28,9 @@
 .basket h2 {
     padding-bottom: 10px;
     text-align: center;
+    color: white;
 }
+
 
 /* Scrollbarer Bereich für Items */
 .basket-dishes {
