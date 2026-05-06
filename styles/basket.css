@@ -6,7 +6,7 @@
     flex-direction: column;
     width: 401px;
     max-width: 100%;
-    height: calc(-440px + 100vh);
+    height: calc(640px + 100vh);
     background-color: rgb(54, 53, 52);
     border-radius: 15px;
     padding: 20px 20px 60px;
@@ -15,7 +15,7 @@
     top: 67px;
     margin-top: 15px;
     padding-bottom: 117px;
-    max-height: 58vh;
+    max-height: 85vh;
 }
 
 
