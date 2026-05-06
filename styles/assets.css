@@ -1,0 +1,20 @@
+/* =========================
+   BUTTONS
+========================= */
+
+.buy_button {
+    background-color: orange;
+    color: rgb(172, 8, 8);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: 0.2s ease;
+    margin-top: 28px;
+}
+
+.buy_button:hover {
+    background-color: darkorange;
+}
+
