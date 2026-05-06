@@ -127,6 +127,7 @@ function buyNow() {
 
     // Nach 5 Sekunden Seite neu laden
     setTimeout(() => {
+        window.scrollTo(0, 0);
         location.reload();
     }, 5000);
 }

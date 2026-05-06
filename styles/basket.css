@@ -16,7 +16,7 @@
     position: sticky;
     top: 67px;
 
-    margin-top: 15px;
+    /* margin-top: 15px; */
     flex-shrink: 0;
 }
 

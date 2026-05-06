@@ -47,7 +47,7 @@
 
     .content {
         gap: 1px;
-        padding-right: 40px;
+        padding-right: 30px;
     }
 
     .contentDishesBurger,
@@ -69,6 +69,7 @@
     .dish-info h3 {
         padding-top: 12px;
     }
+    
 }
 
 @media (max-width: 500px) {
