@@ -122,18 +122,21 @@ footer a {
 }
 
 .section_border {
+    /* width: 100%; */
     width: 1440px;
     height: 70px;
-    background-color: rgba(231, 108, 31, 1);
+    background-color: rgb(231, 108, 31);
     display: flex;
     align-items: center;
-    padding: 0 60px;
+    padding: 0px 60px;
     box-sizing: border-box;
     position: absolute;
     max-width: 100vw;
     gap: 100px;
-    /* max-width: 1440px; */
+    /* margin-left: -700px; */
+    /* margin-right: -16px; */
 }
+
 
 .section_border img {
     height: 50px;
@@ -170,7 +173,6 @@ footer a {
 .contentDishesPasta {
     display: flex;
     flex-direction: column;
-    /* gap: 23px; */
     padding-top: 75px;
     padding-bottom: 15px;
 }
@@ -211,6 +213,7 @@ footer a {
 .dish-info h3 {
     margin-bottom: 6px;
     font-size: 18px;
+    padding-bottom: 12px;
 }
 
 .dish-info p {
@@ -242,4 +245,88 @@ footer a {
 
 .dish-action button:hover {
     background-color: #218838;
+}
+
+.basketNavIconBtn {
+    position: relative;
+}
+
+#basketCount {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    min-width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+}
+
+
+.basketNavIconBtn img {
+    width: 24px;
+    height: 24px;
+    pointer-events: none;
+}
+
+.footerNav {
+    display: none;
+}
+
+@media (max-width: 500px) {
+    .footerNav {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+    }
+
+    .footerNavContainer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    .navItem {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+.carAnimation {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.carAnimation img {
+    position: absolute;
+    top: 50%;
+    left: -80px;
+    transform: translateY(-50%);
+    animation: driveCar 2.5s ease-in-out forwards;
+}
+
+@keyframes driveCar {
+    0% {
+        left: -80px;
+        opacity: 0;
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        left: 110%;
+        opacity: 1;
+    }
 }

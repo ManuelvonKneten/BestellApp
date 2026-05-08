@@ -16,7 +16,6 @@
     position: sticky;
     top: 67px;
 
-    /* margin-top: 15px; */
     flex-shrink: 0;
 }
 
@@ -24,10 +23,52 @@
     display: flex;
 }
 
+.basket-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 10px;
+}
+
 .basket h2 {
     padding-bottom: 10px;
     text-align: center;
     color: white;
+}
+
+.basket-close-btn {
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    border: none;
+    border-radius: 50%;
+
+    background-color: #ff6b00;
+    color: white;
+
+    font-size: 22px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.basket-close-btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+@media (max-width: 900px) {
+    .basket-close-btn {
+        display: flex;
+    }
 }
 
 .basket-dishes {
@@ -82,6 +123,7 @@
 .basket-top {
     display: flex;
     align-items: flex-start;
+
     font-size: 18px;
     font-weight: 800;
 }
@@ -100,12 +142,23 @@
 
 .buy_button {
     width: 100%;
+
     background-color: #ff6b00;
     color: white;
+
     border: none;
     padding: 14px;
+
     border-radius: 999px;
+
     cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.buy_button:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
 }
 
 .basket-actions {
@@ -128,28 +181,6 @@
     font-weight: bold;
 }
 
-.basket-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.basket-close-btn {
-    background: none;
-    border: none;
-    font-size: 22px;
-    cursor: pointer;
-    color: inherit;
-}
-
-.basket-close-btn:hover {
-    opacity: 0.6;
-}
-
-/* =========================
-   DIALOG
-========================= */
-
 .orderDialog {
     width: 415px;
     height: 219px;
@@ -160,13 +191,16 @@
     position: fixed;
     top: 50%;
     left: 50%;
+
     transform: translate(-50%, -50%);
 
     border-radius: 12px;
     padding: 20px;
+
     text-align: center;
 
     box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+
     z-index: 999;
 }
 
@@ -177,9 +211,12 @@
 
 .dialog_button {
     margin-top: 15px;
+
     padding: 8px 16px;
+
     border: none;
     border-radius: 6px;
+
     cursor: pointer;
 }
 
@@ -201,17 +238,32 @@
     color: white;
 }
 
-/* =========================
-   SUMMARY
-========================= */
-
 .line {
     display: flex;
     justify-content: space-between;
+
     margin: 4px 0;
 }
 
 .total {
     font-size: 16px;
     margin-top: 6px;
+}
+
+.basket-empty {
+    text-align: center;
+
+    padding: 20px;
+
+    opacity: 0.6;
+    font-size: 16px;
+}
+
+.basket p {
+    color: rgb(174,161,153);
+
+    font-weight: 800;
+    font-size: 24px;
+
+    padding-bottom: 24px;
 }

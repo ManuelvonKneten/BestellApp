@@ -90,6 +90,53 @@
     .basket.active {
         top: 0;
     }
+
+    .footerNavContainer {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        padding: 16px;
+        background-color: #363534;
+        height: 60px;
+
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+
+    body {
+        padding-bottom: 60px;
+    }
+    footer {
+    height: 100px;
+}
+.orderDialog {
+    width: 200px;
+    height: 150px;
+    background-color: #363534;
+    color: white;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+
+}
+    .head_right img {
+        display: none;
+    }
+        footer {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
 }
 
 @media (max-width: 410px) {
@@ -101,4 +148,12 @@
     .section_border {
         gap: 50px;
     }
+
+    .orderDialog {
+        width: 60px;
+        height: 80px;
+
+    }
 }
+
+

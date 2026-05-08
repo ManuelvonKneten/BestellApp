@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BestellApp</title>
-
+    <link rel="icon" href="./assets/icons/takeout_dining_2.png" type="image/png">
     <link rel="stylesheet" href="./styles/standart.css">
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="./styles/responsive.css">
@@ -67,28 +67,39 @@
 
         </section>
 
-    <aside id="basket" class="basket_wrapper">
+        <aside id="basket" class="basket_wrapper">
 
-        <div class="basket">
+    <div class="basket">
 
+        <div class="basket-header">
             <h2>Your Basket</h2>
 
-            <div class="basket-dishes">
-                <div id="basketItems"></div>
-            </div>
-
-            <div class="basket_summary">
-        <button class="buy_button" onclick="buyNow()">Buy Now</button>
-
+            <button class="basket-close-btn" onclick="hideBasket()">
+                ×
+            </button>
         </div>
 
-    </aside>
+        <div class="basket-dishes">
+            <div id="basketItems"></div>
+        </div>
 
-<div id="orderDialog" class="orderDialog hidden">
-    <img src="./assets/icons/car.svg" alt="Delivery">
+        <div class="basket_summary">
+            <button class="buy_button" onclick="buyNow()">
+                Buy Now
+            </button>
+        </div>
+
+    </div>
+
+</aside>
+
+
+    <div id="orderDialog" class="orderDialog hidden">
+    <div class="carAnimation">
+        <img src="./assets/icons/car.svg" alt="Delivery">
+    </div>
 
     <h2>Order confirmed!</h2>
-
     <p>Your food is on the way!</p>
 
     <button class="dialog_closeX" onclick="closeDialog()">
@@ -105,5 +116,29 @@
         <a href="#">Cookie Preference </a>
     </footer>
 
+<div class="footerNav" id="footerNav">
+  <div class="footerNavContainer">
+
+    <a href="#top" class="navItem">
+    <img src="./assets/icons/home.svg" alt="Home" />
+    </a>
+
+    <a href="#" class="navItem navButton" onclick="openProfile(event)">
+    <img src="./assets/icons/person.svg" alt="Customer Profile" />
+    </a>
+
+     <a href="#" class="navItem navButton" onclick="openProfile(event)">
+    <img src="./assets/icons/orders.svg" alt="orders" />
+    </a>
+
+    <a href="#basket" class="navItem navButton basketNavIconBtn" onclick="scrollToBasket(event)">
+    <img src="./assets/icons/shopping_cart.svg" alt="Basket" />
+    <span id="basketCount">0</span>
+    </a>
+
+  </div>
+</div>
+
 </body>
 </html>
+

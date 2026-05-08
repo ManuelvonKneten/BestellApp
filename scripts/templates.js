@@ -1,4 +1,3 @@
-
 function renderBasket() {
     let container = document.querySelector("#basketItems");
     let summary = document.querySelector(".basket_summary");
@@ -8,45 +7,85 @@ function renderBasket() {
 
     container.innerHTML = "";
 
+    
+    if (basket.length === 0) {
+        container.innerHTML = `
+
+        <div class="basket-empty">
+                <p>Nothing here yet. <br> Go ahead and choose something delicious!</p>
+                <img src="./assets/icons/basket.svg" alt="basket">
+
+            </div>
+        `;
+
+        summary.innerHTML = `
+            <div class="basket-costs">
+                <div class="line">
+                    <span>Subtotal:</span>
+                    <span>0.00 €</span>
+                </div>
+
+                <div class="line">
+                    <span>Delivery fee:</span>
+                    <span>0.00 €</span>
+                </div>
+
+                <hr>
+
+                <div class="line total">
+                    <strong>Total:</strong>
+                    <strong>0.00 €</strong>
+                </div>
+            </div>
+
+            <button class="buy_button" disabled>
+                Buy Now
+            </button>
+        `;
+
+        return;
+    }
+
     basket.forEach(item => {
         subtotal += item.price * item.amount;
 
         container.innerHTML += `
-        <div class="basket-item">
+            <div class="basket-item">
 
-            <div class="basket-top">
-                <span>${item.amount} x ${item.name}</span>
-            </div>
-
-            <div class="basket-bottom">
-
-                <div class="basket-actions">
-
-                    <span style="cursor:pointer;"
-                        onclick="${item.amount === 1 ? `removeFromBasket(${item.id})` : `removeFromBasket(${item.id})`}">
-
-                        ${item.amount <= 1
-                            ? `<img src="./assets/icons/delete.png" alt="delete" width="18" height="18">`
-                            : `-`}
-                    </span>
-
-                    <span>
-                        ${item.amount}x
-                    </span>
-
-                    <span onclick="addToBasket(${item.id})" style="cursor:pointer;">
-                        +
-                    </span>
-
+                <div class="basket-top">
+                    <span>${item.amount} x ${item.name}</span>
                 </div>
 
-                <div class="basket-price">
-                    ${item.price.toFixed(2)} €
+                <div class="basket-bottom">
+
+                    <div class="basket-actions">
+
+                        <span style="cursor:pointer;"
+                            onclick="${item.amount === 1 
+                                ? `removeFromBasket(${item.id})` 
+                                : `removeFromBasket(${item.id})`}">
+
+                            ${item.amount <= 1
+                                ? `<img src="./assets/icons/delete.png" alt="delete" width="18" height="18">`
+                                : `-`}
+                        </span>
+
+                        <span>
+                            ${item.amount}x
+                        </span>
+
+                        <span onclick="addToBasket(${item.id})" style="cursor:pointer;">
+                            +
+                        </span>
+
+                    </div>
+
+                    <div class="basket-price">
+                        ${item.price.toFixed(2)} €
+                    </div>
+
                 </div>
-
             </div>
-
-
         `;
     });
 
@@ -63,8 +102,6 @@ function renderBasket() {
                 <span>Delivery fee:</span>
                 <span>${delivery.toFixed(2)} €</span>
             </div>
-
-
 
             <hr>
 
