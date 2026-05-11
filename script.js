@@ -29,26 +29,34 @@ function addToBasket(id) {
     updateUI();
 }
 
+function removeFromBasket(id) {
+    id = Number(id);
+
+    let item = basket.find(d => d.id === id);
+    if (!item) return;
+
+    item.amount--;
+
+    let dish = myDishes.find(d => d.id === id);
+    if (dish) dish.amount = item.amount;
+
+    if (item.amount <= 0) {
+        basket = basket.filter(d => d.id !== id);
+        if (dish) dish.amount = 0;
+    }
+
+    if (!basket.length) {
+        document.querySelector(".basket_wrapper")?.classList.remove("open");
+        basketOpened = false;
+    }
+    updateUI();
+}
+
 function updateUI() {
     showBasket();
     renderBasket();
     renderDishes();
     updateBasketCount();
-}
-
-function removeFromBasket(id) {
-    let item = basket.find(element => element.id === id);
-
-    if (!item) return;
-
-    item.amount--;
-
-    if (item.amount <= 0) {
-        basket = basket.filter(
-            element => element.id !== id
-        );
-    }
-    updateUI();
 }
 
 function renderDishes() {
@@ -112,6 +120,7 @@ function updateBasketCount() {
     if (!counter) return;
 
     counter.textContent = totalAmount;
+    
 }
 
 function showBasket() {
