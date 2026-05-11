@@ -145,11 +145,7 @@ function getRemoveIconOrMinus(item) {
     return "-";
 }
 
-function createBasketSummaryTemplate(
-    subtotal,
-    deliveryCost,
-    total
-) {
+function createBasketSummaryTemplate(subtotal, deliveryCost, total) {
     return `
         <div class="basket-costs">
 
@@ -172,10 +168,7 @@ function createBasketSummaryTemplate(
 
         </div>
 
-        <button
-            class="buy_button"
-            onclick="buyNow()"
-        >
+        <button class="buy_button" onclick="buyNow()">
             Buy Now
         </button>
     `;

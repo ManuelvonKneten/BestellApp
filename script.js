@@ -163,3 +163,22 @@ function closeDialog() {
         ?.classList
         .add("hidden");
 }
+
+function calculateBasketTotals(subtotal, deliveryCost) {
+    const total = subtotal + deliveryCost;
+
+    return {
+        subtotal,
+        deliveryCost,
+        total
+    };
+}
+
+function renderBasketSummary(subtotal, deliveryCost) {
+    const basketSummaryContainer = document.querySelector(".basket_summary");
+
+    const { total } = calculateBasketTotals(subtotal, deliveryCost);
+
+    basketSummaryContainer.innerHTML =
+        createBasketSummaryTemplate(subtotal, deliveryCost, total);
+}
