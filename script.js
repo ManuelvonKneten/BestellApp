@@ -1,138 +1,165 @@
 let basket = [];
 let basketOpened = false;
 
+function init() {
+    renderDishes();
+    updateBasketCount();
+}
+
 function addToBasket(id) {
     id = Number(id);
 
-       if (!basketOpened) {
+    if (!basketOpened) {
         document.querySelector(".basket_wrapper")?.classList.add("open");
         basketOpened = true;
     }
 
-    let item = basket.find(d => d.id === id);
     let dish = myDishes.find(d => d.id === id);
-
     if (!dish) return;
+
+    let item = basket.find(d => d.id === id);
 
     if (item) {
         item.amount++;
+        dish.amount = item.amount;
     } else {
         basket.push({ ...dish, amount: 1 });
+        dish.amount = 1;
     }
+    updateUI();
+}
 
-    let updatedItem = basket.find(d => d.id === id);
-    dish.amount = updatedItem.amount;
-
+function updateUI() {
     showBasket();
     renderBasket();
     renderDishes();
     updateBasketCount();
 }
 
-function renderDishes() {
+function removeFromBasket(id) {
+    let item = basket.find(element => element.id === id);
 
-    let categories = {
+    if (!item) return;
+
+    item.amount--;
+
+    if (item.amount <= 0) {
+        basket = basket.filter(
+            element => element.id !== id
+        );
+    }
+    updateUI();
+}
+
+function renderDishes() {
+    for (const [category, selector] of Object.entries({
         "Burger & Sandwiches": ".contentDishesBurger",
         "Pizza": ".contentDishesPizza",
         "Pasta": ".contentDishesPasta",
         "Salad": ".contentDishesSalad"
-    };
-
-    Object.entries(categories).forEach(([category, selector]) => {
-
-        let container = document.querySelector(selector);
-        if (!container) return;
-
-        container.innerHTML = "";
-
-        let filteredDishes = myDishes.filter(dish => dish.category === category);
-
-        filteredDishes.forEach((dish) => {
-            container.innerHTML += `
-                <div class="dish-card">
-                    <img src="${dish.image}" alt="${dish.name}">
-
-                    <div class="dish-info">
-                        <h3>${dish.name}</h3>
-                        <p>${dish.description}</p>
-                    </div>
-
-                    <div class="dish-action">
-                        <span class="price">${dish.price.toFixed(2)} €</span>
-                        <button onclick="addToBasket(${dish.id})">
-                            Add to Basket (${dish.amount})
-                        </button>
-                    </div>
-                </div>
-            `;
-        });
-    });
-}
-
-function removeFromBasket(id) {
-    let item = basket.find(element => element.id === id);
-
-    if (item) {
-        item.amount--;
-
-        if (item.amount <= 0) {
-            basket = basket.filter(element => element.id !== id);
-        }
-
-        renderBasket();
-        updateBasketCount();
+    })) {
+        document.querySelector(selector).innerHTML = myDishes
+            .filter(dish => dish.category === category)
+            .map(createDishCardTemplate)
+            .join("");
     }
 }
 
-function init() {
-    renderDishes();
-    updateBasketCount();
+function renderBasket() {
+    const items = document.querySelector("#basketItems");
+    const summary = document.querySelector(".basket_summary");
+    const deliveryCost = 3.99;
+
+    if (!basket.length) return renderEmptyBasket(items, summary);
+
+    const subtotal = calculateSubtotal(),
+        total = subtotal + deliveryCost;
+
+    items.innerHTML = basket.map(createBasketItemTemplate).join("");
+    summary.innerHTML = createBasketSummaryTemplate(subtotal, deliveryCost, total);
+}
+
+
+function calculateSubtotal() {
+    return basket.reduce((sum, item) => {
+        return sum + item.price * item.amount;
+    }, 0);
+}
+
+function renderEmptyBasket(
+    basketItemsContainer,
+    basketSummaryContainer
+) {
+    basketItemsContainer.innerHTML =
+        createEmptyBasketTemplate();
+
+    basketSummaryContainer.innerHTML =
+        createEmptySummaryTemplate();
+}
+
+function getBasketAmount() {
+    return basket.reduce((total, item) => {
+        return total + item.amount;
+    }, 0);
+}
+
+function updateBasketCount() {
+    let totalAmount = getBasketAmount();
+
+    let counter =
+        document.getElementById("basketCount");
+
+    if (!counter) return;
+
+    counter.textContent = totalAmount;
 }
 
 function showBasket() {
-    document.querySelector(".basket")?.classList.add("active");
+    document
+        .querySelector(".basket")
+        ?.classList
+        .add("active");
 }
 
 function hideBasket() {
-    document.querySelector(".basket")?.classList.remove("active");
-}
-
-function buyNow() {
-    document.getElementById("orderDialog")?.classList.remove("hidden");
-
-    document.getElementById("basket")?.classList.add("hidden");
-
-    document.querySelector("#basket").innerHTML = "";
-
-    setTimeout(() => {
-        window.scrollTo(0, 0);
-        location.reload();
-    }, 5000);
-}
-
-function closeDialog() {
-    document.getElementById("orderDialog")?.classList.add("hidden");
+    document
+        .querySelector(".basket")
+        ?.classList
+        .remove("active");
 }
 
 function scrollToBasket() {
     showBasket();
     renderBasket();
 
-    document.querySelector(".basket")?.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-    });
+    document
+        .querySelector(".basket")
+        ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
 }
 
-function getBasketAmount() {
-    return basket.reduce((total, item) => total + item.amount, 0);
+function buyNow() {
+    document.getElementById("orderDialog")?.classList.remove("hidden");
+    document.querySelector(".basket")?.classList.add("hidden");
+
+    basket = [];
+    basketOpened = false;
+    myDishes.forEach(d => d.amount = 0);
+
+    updateUI();
+    hideBasket();
+
+    setTimeout(() =>
+        document.getElementById("orderDialog")?.classList.add("hidden"),
+        5000
+    );
 }
 
-function updateBasketCount() {
-    let totalAmount = getBasketAmount();
-
-    let counter = document.getElementById("basketCount");
-    if (counter) {
-        counter.textContent = totalAmount;
-    }
+function closeDialog() {
+    document
+        .getElementById("orderDialog")
+        ?.classList
+        .add("hidden");
 }
