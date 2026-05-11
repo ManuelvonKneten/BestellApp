@@ -131,18 +131,9 @@ function createBasketItemTemplate(item) {
 }
 
 function getRemoveIconOrMinus(item) {
-    if (item.amount <= 1) {
-        return `
-            <img
-                src="./assets/icons/delete.png"
-                alt="delete"
-                width="18"
-                height="18"
-            >
-        `;
-    }
-
-    return "-";
+    return showDeleteIcon(item)
+        ? `<img src="./assets/icons/delete.png" alt="delete" width="18" height="18">`
+        : "-";
 }
 
 function createBasketSummaryTemplate(subtotal, deliveryCost, total) {

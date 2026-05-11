@@ -6,49 +6,41 @@ function init() {
     updateBasketCount();
 }
 
+const toggleBasket = (open) => {
+    document.querySelector(".basket_wrapper")?.classList.toggle("open", open);
+    basketOpened = open;
+};
+
+const syncAmount = (id, amount) => {
+    const dish = myDishes.find(d => d.id === id);
+    if (dish) dish.amount = amount;
+};
+
 function addToBasket(id) {
-    id = Number(id);
-
-    if (!basketOpened) {
-        document.querySelector(".basket_wrapper")?.classList.add("open");
-        basketOpened = true;
-    }
-
-    let dish = myDishes.find(d => d.id === id);
-    if (!dish) return;
-
-    let item = basket.find(d => d.id === id);
-
+    if (!basketOpened) toggleBasket(true);
+    let item = basket.find(d => d.id === +id);
     if (item) {
         item.amount++;
-        dish.amount = item.amount;
     } else {
-        basket.push({ ...dish, amount: 1 });
-        dish.amount = 1;
+        item = { ...myDishes.find(d => d.id === +id), amount: 1 };
+        basket.push(item);
     }
+    syncAmount(+id, item.amount);
     updateUI();
 }
 
 function removeFromBasket(id) {
-    id = Number(id);
-
-    let item = basket.find(d => d.id === id);
+    let item = basket.find(d => d.id === +id);
     if (!item) return;
 
-    item.amount--;
-
-    let dish = myDishes.find(d => d.id === id);
-    if (dish) dish.amount = item.amount;
-
-    if (item.amount <= 0) {
-        basket = basket.filter(d => d.id !== id);
-        if (dish) dish.amount = 0;
+    if (--item.amount <= 0) {
+        basket = basket.filter(d => d.id !== +id);
+        syncAmount(+id, 0);
+    } else {
+        syncAmount(+id, item.amount);
     }
 
-    if (!basket.length) {
-        document.querySelector(".basket_wrapper")?.classList.remove("open");
-        basketOpened = false;
-    }
+    if (!basket.length) toggleBasket(false);
     updateUI();
 }
 
@@ -86,7 +78,6 @@ function renderBasket() {
     items.innerHTML = basket.map(createBasketItemTemplate).join("");
     summary.innerHTML = createBasketSummaryTemplate(subtotal, deliveryCost, total);
 }
-
 
 function calculateSubtotal() {
     return basket.reduce((sum, item) => {
@@ -158,8 +149,7 @@ function buyNow() {
     myDishes.forEach(d => d.amount = 0);
 
     updateUI();
-    hideBasket();
-
+    
     setTimeout(() =>
         document.getElementById("orderDialog")?.classList.add("hidden"),
         5000
@@ -191,3 +181,9 @@ function renderBasketSummary(subtotal, deliveryCost) {
     basketSummaryContainer.innerHTML =
         createBasketSummaryTemplate(subtotal, deliveryCost, total);
 }
+
+function showDeleteIcon(item) {
+    return item.amount <= 1;
+}
+
+
