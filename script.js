@@ -17,7 +17,7 @@ const syncAmount = (id, amount) => {
 };
 
 function addToBasket(id) {
-    if (!basketOpened) toggleBasket(true);
+    // if (!basketOpened) toggleBasket(true); 
     let item = basket.find(d => d.id === +id);
     if (item) {
         item.amount++;
@@ -45,6 +45,13 @@ function removeFromBasket(id) {
 }
 
 function updateUI() {
+    if (window.innerWidth <= 500) {
+        renderBasket();
+        renderDishes();
+        updateBasketCount();
+        return;
+    }
+
     showBasket();
     renderBasket();
     renderDishes();
@@ -115,6 +122,8 @@ function updateBasketCount() {
 }
 
 function showBasket() {
+    document.body.classList.add("basket_open");
+
     document
         .querySelector(".basket")
         ?.classList
@@ -122,6 +131,8 @@ function showBasket() {
 }
 
 function hideBasket() {
+    document.body.classList.remove("basket_open");
+
     document
         .querySelector(".basket")
         ?.classList
