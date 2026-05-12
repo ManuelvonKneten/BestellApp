@@ -70,9 +70,11 @@
     .dish-info h3 {
         padding-top: 12px;
     }
-    .basket.active {
+.basket.active {
      border-radius: 0;
-    }
+     position: fixed;
+     margin-top: 9vw;
+}
 
 }
 

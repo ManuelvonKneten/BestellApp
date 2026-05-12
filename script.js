@@ -186,4 +186,17 @@ function showDeleteIcon(item) {
     return item.amount <= 1;
 }
 
+function handleBasketNav(event) {
+    event.preventDefault();
 
+    const basket = document.querySelector(".basket");
+
+    const isOpen = basket.classList.contains("active");
+
+    if (isOpen) {
+        hideBasket();
+    } else {
+        showBasket();
+        scrollToBasket(event);
+    }
+}
